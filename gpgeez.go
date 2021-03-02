@@ -33,6 +33,11 @@ const (
 	sha224    = 11
 )
 
+// MakeKey converts an OpenPGP Entity into a gpgeez Key
+func MakeKey(key openpgp.Entity) *Key {
+	return &Key{key}
+}
+
 // CreateKey creates an OpenPGP key which is similar to running gpg --gen-key
 // on the command line. In other words, this method returns a primary signing
 // key and an encryption subkey with expected self-signatures.
